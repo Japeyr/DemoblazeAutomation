@@ -6,13 +6,11 @@ jobs:
   test_suite:
     runs-on: ubuntu-latest
     steps:
-      # Actualizado de v3 a v5
       - name: Checkout del codigo
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4  # <--- v4 es la correcta para Node 20/24
 
-      # Actualizado de v4 a v5
       - name: Instalar Python 3.11
-        uses: actions/setup-python@v5 
+        uses: actions/setup-python@v5  # <--- v5 es la correcta para Node 20/24
         with:
           python-version: '3.11'
 
