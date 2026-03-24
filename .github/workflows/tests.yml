@@ -1,4 +1,6 @@
-name: Ejecucion de Tests Selenium
+- name: Ejecutar mis pruebas
+        run: |
+          pytest src/
 
 on: [push]  # Se ejecutará cada vez que hagas un git push
 
