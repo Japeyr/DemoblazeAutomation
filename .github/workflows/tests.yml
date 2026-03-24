@@ -6,11 +6,13 @@ jobs:
   test_suite:
     runs-on: ubuntu-latest
     steps:
+      # Actualizado de v3 a v5
       - name: Checkout del codigo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 
 
+      # Actualizado de v4 a v5
       - name: Instalar Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 
         with:
           python-version: '3.11'
 
@@ -20,5 +22,4 @@ jobs:
 
       - name: Correr mis tests
         run: |
-          # Al estar en la raíz de DemoblazeAutomation, entramos a src/
           pytest src/test_demoblaze.py
