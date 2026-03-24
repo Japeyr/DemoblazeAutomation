@@ -51,5 +51,4 @@ def test_logins(setup, user, password, desc):
     elif desc == "Usuario no existente":
         mensaje = f.obtener_texto_alerta()
         assert mensaje == "User does not exist."
-
     print(f"Ejecutando caso: {desc}")
