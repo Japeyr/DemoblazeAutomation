@@ -6,11 +6,16 @@ from FuncionesDemoblaze import FuncionesGlobales
 # Fixture para manejar el driver automáticamente
 @pytest.fixture
 def setup():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")  # <--- OBLIGATORIO para GitHub Actions
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    
+    driver = webdriver.Chrome(options=options)
     f = FuncionesGlobales(driver)
     f.navegar("https://www.demoblaze.com/index.html")
-    yield driver, f  # Aquí se ejecutan los tests
-    driver.quit()  # Se cierra al terminar el test
+    yield driver, f
+    driver.quit()
 
 
 # Test parametrizado (4 tests en 1 solo bloque de código)
