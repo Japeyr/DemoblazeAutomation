@@ -1,8 +1,6 @@
-- name: Ejecutar mis pruebas
-        run: |
-          pytest src/
+name: Selenium CI Demoblaze
 
-on: [push]  # Se ejecutará cada vez que hagas un git push
+on: [push]
 
 jobs:
   test_suite:
@@ -11,7 +9,7 @@ jobs:
       - name: Checkout del codigo
         uses: actions/checkout@v3
 
-      - name: Instalar Python
+      - name: Instalar Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
@@ -22,4 +20,5 @@ jobs:
 
       - name: Correr mis tests
         run: |
-          pytest demoblaze/src/test_demoblaze.py
+          # Al estar en la raíz de DemoblazeAutomation, entramos a src/
+          pytest src/test_demoblaze.py
