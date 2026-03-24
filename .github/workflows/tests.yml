@@ -1,1 +1,23 @@
+name: Ejecucion de Tests Selenium
 
+on: [push]  # Se ejecutará cada vez que hagas un git push
+
+jobs:
+  test_suite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codigo
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          pip install selenium pytest
+
+      - name: Correr mis tests
+        run: |
+          pytest demoblaze/src/test_demoblaze.py
